@@ -1,0 +1,6 @@
+@event_editor_HostAddress = http://localhost:5210
+
+GET {{event_editor_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
