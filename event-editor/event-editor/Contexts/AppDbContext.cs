@@ -1,5 +1,5 @@
-﻿using event_editor.Models;
-using event_editor.Models.Configurations;
+﻿using event_editor.Entities;
+using event_editor.Entities.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

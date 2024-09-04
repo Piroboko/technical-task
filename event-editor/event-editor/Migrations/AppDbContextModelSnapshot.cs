@@ -22,7 +22,7 @@ namespace event_editor.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("event_editor.Models.Event", b =>
+            modelBuilder.Entity("event_editor.Entities.Event", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,8 +36,8 @@ namespace event_editor.Migrations
                     b.Property<int>("CreatorId")
                         .HasColumnType("integer");
 
-                    b.Property<DateOnly>("DateTime")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -45,7 +45,7 @@ namespace event_editor.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("text");
 
-                    b.Property<int>("MaxParticipants")
+                    b.Property<int?>("MaxParticipants")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
@@ -58,7 +58,7 @@ namespace event_editor.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("event_editor.Models.User", b =>
+            modelBuilder.Entity("event_editor.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,7 +90,7 @@ namespace event_editor.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("event_editor.Models.UserEvent", b =>
+            modelBuilder.Entity("event_editor.Entities.UserEvent", b =>
                 {
                     b.Property<int>("EventId")
                         .HasColumnType("integer");
@@ -105,15 +105,15 @@ namespace event_editor.Migrations
                     b.ToTable("UserEvents");
                 });
 
-            modelBuilder.Entity("event_editor.Models.UserEvent", b =>
+            modelBuilder.Entity("event_editor.Entities.UserEvent", b =>
                 {
-                    b.HasOne("event_editor.Models.Event", "Event")
+                    b.HasOne("event_editor.Entities.Event", "Event")
                         .WithMany("UserEvents")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("event_editor.Models.User", "User")
+                    b.HasOne("event_editor.Entities.User", "User")
                         .WithMany("UserEvents")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -124,12 +124,12 @@ namespace event_editor.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("event_editor.Models.Event", b =>
+            modelBuilder.Entity("event_editor.Entities.Event", b =>
                 {
                     b.Navigation("UserEvents");
                 });
 
-            modelBuilder.Entity("event_editor.Models.User", b =>
+            modelBuilder.Entity("event_editor.Entities.User", b =>
                 {
                     b.Navigation("UserEvents");
                 });

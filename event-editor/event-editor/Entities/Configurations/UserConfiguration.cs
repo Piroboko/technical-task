@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace event_editor.Models.Configurations
+namespace event_editor.Entities.Configurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {

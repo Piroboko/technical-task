@@ -1,4 +1,4 @@
-﻿using event_editor.Models;
+﻿using event_editor.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

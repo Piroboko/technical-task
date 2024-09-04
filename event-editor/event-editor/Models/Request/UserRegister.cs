@@ -1,9 +1,7 @@
-﻿namespace event_editor.Entities
+﻿namespace event_editor.Models.Request
 {
-    public class User
+    public class UserRegister
     {
-        public int Id { get; set; }
-
         public string? Password { get; set; }
 
         public string? FirstName { get; set; }
@@ -13,7 +11,5 @@
         public DateTime BirthDate { get; set; }
 
         public string? Email { get; set; }
-
-        public ICollection<UserEvent> UserEvents { get; set; }
     }
 }

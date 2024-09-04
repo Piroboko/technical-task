@@ -1,8 +1,7 @@
-﻿namespace event_editor.Models
+﻿namespace event_editor.Entities
 {
     public class UserEvent
     {
-
         public int UserId { get; set; }
         
         public User User { get; set; }

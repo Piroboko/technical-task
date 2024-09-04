@@ -20,9 +20,9 @@ namespace event_editor.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "character varying(60)", maxLength: 60, nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    DateTime = table.Column<DateOnly>(type: "date", nullable: false),
+                    DateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Category = table.Column<string>(type: "text", nullable: true),
-                    MaxParticipants = table.Column<int>(type: "integer", nullable: false),
+                    MaxParticipants = table.Column<int>(type: "integer", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: true),
                     CreatorId = table.Column<int>(type: "integer", nullable: false)
                 },
