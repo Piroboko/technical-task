@@ -33,6 +33,9 @@ namespace event_editor.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("text");
 
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("integer");
+
                     b.Property<DateOnly>("DateTime")
                         .HasColumnType("date");
 
@@ -50,12 +53,7 @@ namespace event_editor.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("character varying(60)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Events");
                 });
@@ -107,17 +105,6 @@ namespace event_editor.Migrations
                     b.ToTable("UserEvents");
                 });
 
-            modelBuilder.Entity("event_editor.Models.Event", b =>
-                {
-                    b.HasOne("event_editor.Models.User", "User")
-                        .WithMany("Events")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("event_editor.Models.UserEvent", b =>
                 {
                     b.HasOne("event_editor.Models.Event", "Event")
@@ -144,8 +131,6 @@ namespace event_editor.Migrations
 
             modelBuilder.Entity("event_editor.Models.User", b =>
                 {
-                    b.Navigation("Events");
-
                     b.Navigation("UserEvents");
                 });
 #pragma warning restore 612, 618

@@ -11,10 +11,7 @@ namespace event_editor.Models.Configurations
 
             builder.Property(e => e.Name).HasMaxLength(60).IsRequired();
             builder.Property(e => e.DateTime).IsRequired();
-
-            builder.HasOne(e => e.User)
-                .WithMany(u => u.Events)
-                .HasForeignKey(e => e.UserId);
+            builder.Property(e => e.CreatorId).IsRequired();
         }
     }
 }

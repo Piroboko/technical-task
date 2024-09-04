@@ -17,9 +17,7 @@
 
         public string? Image { get; set; }
 
-        public int UserId { get; set; }
-
-        public User User { get; set; }
+        public int CreatorId { get; set; }
 
         public ICollection<UserEvent> UserEvents { get; set; }
     }
